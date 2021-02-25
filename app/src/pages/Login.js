@@ -5,7 +5,7 @@ import axios from 'axios';
 import md5 from 'md5';
 import Cookies from 'universal-cookie';
 
-const baseUrl="http://localhost:3001/usuarios";
+const baseUrl="http://localhost:5000/api/employee";
 const cookies = new Cookies();
 
 class Login extends Component {
@@ -28,6 +28,7 @@ class Login extends Component {
     iniciarSesion=async()=>{
         await axios.get(baseUrl, {params: {username: this.state.form.username, password: md5(this.state.form.password)}})
         .then(response=>{
+            console.log(response.data);
             return response.data;
         })
         .then(response=>{
@@ -38,8 +39,8 @@ class Login extends Component {
                 cookies.set('apellido_materno', respuesta.apellido_materno, {path: "/"});
                 cookies.set('nombre', respuesta.nombre, {path: "/"});
                 cookies.set('username', respuesta.username, {path: "/"});
-                alert(`Bienvenido ${respuesta.nombre} ${respuesta.apellido_paterno}`);
-                window.location.href="./ordencompra";
+                // alert(`Bienvenido ${respuesta.nombre} ${respuesta.apellido_paterno}`);
+                // window.location.href="./ordencompra";
             }else{
                 alert('El usuario o la contraseña no son correctos');
             }
@@ -52,7 +53,7 @@ class Login extends Component {
 
     componentDidMount() {
         if(cookies.get('username')){
-            window.location.href="./ordencompra";
+            // window.location.href="./ordencompra";
         }
     }
     

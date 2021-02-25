@@ -15,7 +15,7 @@ create table employee (
 	roleId int not null,
 	dni nvarchar(30) not null,
 	email nvarchar(30) not null,
-	password nvarchar(30) not null,
+	password nvarchar(150) not null,
 	surname nvarchar(30) not null,
 	surname2 nvarchar(30),
 	name nvarchar(30) not null,
@@ -31,7 +31,7 @@ create table client(
 	ruc nvarchar(30),
 	email nvarchar(30) not null,
 	address nvarchar(150),
-	password nvarchar(30) not null,
+	password nvarchar(150) not null,
 	surname nvarchar(30) not null,
 	surname2 nvarchar(30),
 	name nvarchar(30) not null,
@@ -141,12 +141,13 @@ VALUES
 (2, 'Sale', 'access to stock, deliveries, sales'),
 (3, 'Manager', 'access to all functions');
 
+/*md5 password encryption */
 INSERT INTO employee(id, roleId, dni, email, password, surname, surname2, name, telephone)
 VALUES 
-(NEWID(), 3, '12345678', 'juanPerez@gmail.com', '12345678', 'Perez', '', 'Juan', '987654321'),
-(NEWID(), 3, '22345678', 'sandraVega@gmail.com', '22345678', 'Vega', 'Gallardo', 'Sandra', '987654322'),
-(NEWID(), 2, '32345678', 'renatoSanchez@gmail.com', '32345678', 'Sanchez', 'Urteaga', 'Renato', '987654323'),
-(NEWID(), 1, '42345678', 'wendyZorrilla@gmail.com', '42345678', 'Zorrilla', 'Garcia', 'Wendy', '987654324');
+(NEWID(), 3, '12345678', 'juanPerez@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'Perez', '', 'Juan', '987654321'),
+(NEWID(), 3, '22345678', 'sandraVega@gmail.com', '08e0750210f66396eb83957973705aad', 'Vega', 'Gallardo', 'Sandra', '987654322'),
+(NEWID(), 2, '32345678', 'renatoSanchez@gmail.com', 'b2db1185c9e5b88d9b70d7b3278a4947', 'Sanchez', 'Urteaga', 'Renato', '987654323'),
+(NEWID(), 1, '42345678', 'wendyZorrilla@gmail.com', '18e56d777d194c4d589046d62801501c', 'Zorrilla', 'Garcia', 'Wendy', '987654324');
 
 INSERT INTO product(id, name, image, description, label, stock, stockmin, stockmax, price)
 VALUES 

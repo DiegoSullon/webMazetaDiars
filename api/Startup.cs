@@ -46,7 +46,14 @@ namespace api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
+
+            app.UseCors(p =>
+            {
+                p.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                
+                p.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+            });
 
             app.UseRouting();
 

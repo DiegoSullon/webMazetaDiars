@@ -25,7 +25,7 @@ namespace api.Controllers
         public async Task<ActionResult<IEnumerable<Employee>>> GetAuthors()
         {
             //await Task.Delay(3000);
-            return await _context.employees.ToListAsync();
+            return await _context.employees.Include(p => p.role).ToListAsync();
         }
 
         [HttpGet("{id}")]
