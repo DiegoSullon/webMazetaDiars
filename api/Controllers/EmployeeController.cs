@@ -28,10 +28,24 @@ namespace api.Controllers
             return await _context.employees.Include(p => p.role).ToListAsync();
         }
 
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            return "value";
+        //api/employee/login?dni=a&password=b
+        [HttpGet("login")]
+        public async Task<ActionResult<Employee>> GetProduct(string dni, string password)
+        {  
+            try
+            {
+                var employee = await _context.employees.FirstAsync(p => p.dni == dni && p.password == password);
+                if (employee == null)
+                {
+                    return NotFound();
+                }
+                return employee;
+            }
+            catch (System.Exception)
+            {
+
+                return NotFound();
+            }
         }
 
         [HttpPost]
