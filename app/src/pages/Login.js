@@ -5,7 +5,7 @@ import axios from 'axios';
 import md5 from 'md5';
 import Cookies from 'universal-cookie';
 
-const baseUrl = "http://localhost:5000/api/employee";
+// const baseUrl = "http://localhost:5000/api/employee";
 const cookies = new Cookies();
 
 class Login extends Component {
@@ -31,20 +31,23 @@ class Login extends Component {
         // await axios.get(baseUrl, {params: {dni: this.state.form.username, password: md5(this.state.form.password)}})
 
         //login validado en backend; con dni y contraseña
-        await axios.get(`http://localhost:5000/api/employee/login?dni=${this.state.form.username}&password=${md5(this.state.form.password)}`)
+        await axios.get(`http://localhost:5000/api/user/login?dni=${this.state.form.username}&password=${md5(this.state.form.password)}`)
             .then(response => {
                 console.log(response.data);
-                console.log(md5(this.state.form.password));
+                console.log(response.data.token.value.token);
                 return response.data;
             })
             .then(response => {
                 console.log(response.id);
                 cookies.set('id', response.id, { path: "/" });
                 cookies.set('email', response.email, { path: "/" });
+                cookies.set('ruc', response.ruc, { path: "/" });
                 cookies.set('dni', response.dni, { path: "/" });
-                cookies.set('password', response.password, { path: "/" });
+                cookies.set('address', response.address, { path: "/" });
                 cookies.set('name', response.name, { path: "/" });
                 cookies.set('surname', response.surname, { path: "/" });
+                cookies.set('telephone', response.telephone, { path: "/" });
+                cookies.set('token', response.token.value.token, { path: "/" });
                 alert(`Bienvenido ${response.name} ${response.surname}`);
                 window.location.href="./ordencompra";
 
@@ -87,6 +90,7 @@ class Login extends Component {
                         />
                         <br />
                         <button className="btn btn-primary" onClick={() => this.iniciarSesion()}>Iniciar Sesión</button>
+                        <a href="./registro">Registrate</a>
                     </div>
                 </div>
             </div>
