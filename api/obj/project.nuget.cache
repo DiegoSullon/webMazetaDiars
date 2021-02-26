@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "bq79CliqEc8LW2hSJEQGMF5sRxj9k7oJZw5UBNWfCERTPrN6Rvt0a2yrt8pIuZInE/ki8npHZ8AqAzNzenNG7Q==",
+  "dgSpecHash": "3UbZxsXW65VhPUjDhoOMrmqPyAdvBctrzdz08vOVP7NcyLhG9vPcp8T4TKHjLJUzE9Gga/W5c+QjmbD1x839vA==",
   "success": true,
   "projectFilePath": "D:\\Documentos\\Virtuales\\Diars\\Proyecto\\webMazetaDiars\\api\\api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Diego Sullon\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.0\\microsoft.aspnetcore.authentication.jwtbearer.3.1.0.nupkg.sha512",
     "C:\\Users\\Diego Sullon\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.0\\microsoft.aspnetcore.jsonpatch.3.1.0.nupkg.sha512",
     "C:\\Users\\Diego Sullon\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.0\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.0.nupkg.sha512",
     "C:\\Users\\Diego Sullon\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

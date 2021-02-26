@@ -18,7 +18,5 @@ namespace api.Models
         public string telephone {get;set;}
         public virtual Role role {get;set;}
         public virtual DeliveryOrder deliveryOrder {get;set;} // 1 1
-        
-
     }
 }
