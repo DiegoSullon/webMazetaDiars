@@ -15,7 +15,7 @@ class Menu extends Component {
 
     componentDidMount() {
         if(!cookies.get('username')){
-            window.location.href="./";
+            // window.location.href="./";
         }
     }
 

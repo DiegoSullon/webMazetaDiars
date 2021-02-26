@@ -3,11 +3,10 @@ import '../css/Login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import md5 from 'md5';
-import { NavLink } from 'react-router-dom';
 
 // const baseUrl = "http://localhost:5000/api/employee";
 
-class Login extends Component {
+class Register extends Component {
     state = {
         form: {
             username: '',
@@ -24,31 +23,20 @@ class Login extends Component {
         });
     }
 
-    iniciarSesion = async () => {
+    register = async () => {
         // ERROR AXIOS con PARAMS esta trayendo todos los datos sin importar los parametros enviados
         // revisar https://stackoverflow.com/questions/61478796/how-to-pass-parameter-to-http-get-method-from-net-core-react
         // await axios.get(baseUrl, {params: {dni: this.state.form.username, password: md5(this.state.form.password)}})
 
         //login validado en backend; con dni y contraseña
-        await axios.get(`http://localhost:5000/api/user/login?dni=${this.state.form.username}&password=${md5(this.state.form.password)}`)
+        await axios.get(`http://localhost:5000/api/employee/login?dni=${this.state.form.username}&password=${md5(this.state.form.password)}`)
             .then(response => {
-                console.log(response.data);
-                console.log(response.data.token.value.token);
+                // console.log(response.data);
+                console.log(response.data.token);
                 return response.data;
             })
             .then(response => {
-                console.log(response.id);
-                this.props.cookies.set('id', response.id, { path: "/" });
-                this.props.cookies.set('email', response.email, { path: "/" });
-                this.props.cookies.set('ruc', response.ruc, { path: "/" });
-                this.props.cookies.set('dni', response.dni, { path: "/" });
-                this.props.cookies.set('address', response.address, { path: "/" });
-                this.props.cookies.set('name', response.name, { path: "/" });
-                this.props.cookies.set('surname', response.surname, { path: "/" });
-                this.props.cookies.set('telephone', response.telephone, { path: "/" });
-                this.props.cookies.set('token', response.token.value.token, { path: "/" });
-                alert(`Bienvenido ${response.name} ${response.surname}`);
-                window.location.href = "./ordencompra";
+                // window.location.href="./ordencompra";
 
             })
             .catch(error => {
@@ -60,7 +48,7 @@ class Login extends Component {
 
     componentDidMount() {
         if (this.props.cookies.get('username')) {
-            window.location.href = "./ordencompra";
+            window.location.href="./ordencompra";
         }
     }
 
@@ -70,7 +58,7 @@ class Login extends Component {
             <div className="containerPrincipal">
                 <div className="containerSecundario">
                     <div className="form-group">
-                        <label>Dni: </label>
+                        <label>Usuario: </label>
                         <br />
                         <input
                             type="text"
@@ -88,10 +76,7 @@ class Login extends Component {
                             onChange={this.handleChange}
                         />
                         <br />
-                        <button className="btn btn-primary" onClick={() => this.iniciarSesion()}>Iniciar Sesión</button>
-                        <div className="containerSecundario">
-                            <NavLink to="/registro">Registrate</NavLink>
-                        </div>
+                        <button className="btn btn-primary" onClick={() => this.register()}>Iniciar Sesión</button>
                     </div>
                 </div>
             </div>
@@ -99,4 +84,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default Register;
