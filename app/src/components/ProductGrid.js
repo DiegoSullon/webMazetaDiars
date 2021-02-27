@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import '../css/General.css';
 import ProductCard from './ProductCard';
 function ProductGrid({ subtitle }) {
     const [products, setproducts] = useState([]);
