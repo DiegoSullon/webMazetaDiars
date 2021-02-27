@@ -1,5 +1,6 @@
 import React from 'react'
 import '../css/Header.css';
+import $ from 'jquery';
 import { NavLink } from 'react-router-dom'
 
 const removeToken = () => {
