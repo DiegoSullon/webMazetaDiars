@@ -2,3 +2,7 @@
     justify-content: flex-end
     /* background-color: khaki; */
 }
+.btn-outline-success {
+    color: #a74128;
+    border-color: #a73728;
+}

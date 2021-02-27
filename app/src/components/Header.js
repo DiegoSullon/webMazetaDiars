@@ -12,12 +12,15 @@ const removeToken = () => {
 const Header = ({cookies}) => {
     const userLogged = cookies.get('token')
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div className="container-fluid">
                 <NavLink className="navbar-brand" to="/">
                     <img src="https://image.ibb.co/dnxi3L/logo.png" alt="logo" width="30" height="24" />
                 </NavLink>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button className="navbar-toggler" type="button" onClick={e=>{
+                    e.preventDefault();
+                    $("#navbarSupportedContent").toggleClass("collapse");
+                }} data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-expanded="false">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse display-right" id="navbarSupportedContent">

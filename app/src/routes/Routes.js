@@ -1,8 +1,8 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Switch} from 'react-router-dom';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
-import Menu from '../pages/Menu';
+import Home from '../pages/Home';
 import OrdenCompra from '../pages/OrdenCompra';
 import Header from '../components/Header';
 import Cookies from 'universal-cookie';
@@ -16,7 +16,7 @@ function Routes() {
     <BrowserRouter>
     <Header cookies={_cookies}/>
       <Switch>
-        <Public exact path="/" component={Menu} cookies={_cookies}/>
+        <Public exact path="/" component={Home} cookies={_cookies}/>
         <Public exact path="/login" component={(props)=><Login {...props} cookies={_cookies}/>} cookies={_cookies}/>
         <Public exact path="/registro" component={(props)=><Register {...props} cookies={_cookies}/>} cookies={_cookies}/>
         <Protected exact path="/ordencompra" component={OrdenCompra} cookies={_cookies}/>
