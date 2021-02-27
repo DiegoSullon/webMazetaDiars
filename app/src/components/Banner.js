@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import $ from 'jquery';
 import '../css/Banner.css';
 import Carousel from 'react-bootstrap/Carousel'
-import Image from 'react-bootstrap/Image'
 
 import img1 from '../img/gym2p.jpg';
 import img2 from '../img/gym1p.jpg';
