@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 import store from '../redux/store'
-import { getAllProducts } from '../redux/actionCreators'
+import { getAllProducts,sortProducts } from '../redux/actionCreators'
 import '../css/General.css';
 import '../css/Grid.css';
 import ProductCard from './ProductCard';
@@ -26,7 +26,7 @@ function ProductGrid({ cookies, subtitle, page,products }) {
                                     <label className="col-md-4 control-label text-right pt-2">Sort by:</label>
                                     <div className="col-md-8">
                                         <select className="form-control" onChange={e => {
-            
+                                            store.dispatch(sortProducts(products,e.target.value));
                                         }}>
                                             <option value="1">
                                                 Position
