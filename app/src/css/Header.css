@@ -1,8 +1,46 @@
-.display-right{
+.display-right {
     justify-content: flex-end
     /* background-color: khaki; */
 }
+
 .btn-outline-success {
     color: #a74128;
     border-color: #a73728;
 }
+
+body {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.page-header, h2 {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+p, .caption h4, label, table, .panel {
+    font-size: 14px !important;
+}
+
+h2 {
+    font-size: 30px !important;
+}
+
+.navbar-brand, .text-logo {
+    font-size: 18px !important;
+}
+
+.navbar-left a {
+    font-size: 14px !important;
+}
+
+/* .dropdown-menu>a {
+    display: block;
+    width: 100%;
+    padding: .25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+} */
