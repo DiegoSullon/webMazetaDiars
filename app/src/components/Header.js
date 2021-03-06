@@ -4,16 +4,17 @@ import $ from 'jquery';
 import { Link, NavLink } from 'react-router-dom'
 import Seeker from './Seeker';
 
-const removeToken = () => {
-    localStorage.removeItem('token')
-    window.location = "/login"
-    window.location.reload();
-}
+
 
 const Header = ({ cookies }) => {
     const userLogged = cookies.get('token')
     const show=()=>{
         $("#navbarDropdown").toggleClass("show");
+    }
+    const removeToken = () => {
+        cookies.remove('token')
+        window.location = "/login"
+        window.location.reload();
     }
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -41,12 +42,16 @@ const Header = ({ cookies }) => {
                             </div>
                         </li>
                         <li className="nav-item"><NavLink className="nav-link" to="/contacto">Contactanos</NavLink></li>
-                        <li className="nav-item"><NavLink className="nav-link" to="/ordencompra">Orden de compra</NavLink></li>
-                        <li className="nav-item"><NavLink className="nav-link" to="/login">Login</NavLink></li>
+                        {
+                            userLogged ?
+                            <li className="nav-item"><NavLink className="nav-link" to="/ordencompra">Orden de compra</NavLink></li>
+                            :<></>
+                        }
+                        
                         {userLogged ?
-                            <li className="nav-item"><NavLink className="nav-link" onClick={() => removeToken()} exact to="/">Cerrar sesión</NavLink></li>
+                            <li className="nav-item"><Link className="nav-link" onClick={() => removeToken()} exact to="/">Cerrar sesión</Link></li>
                             :
-                            <li className="nav-item"></li>
+                            <li className="nav-item"><NavLink className="nav-link" to="/login">Login</NavLink></li>
                         }
                     </ul>
 

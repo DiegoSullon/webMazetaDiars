@@ -3,7 +3,7 @@ import ProductGrid from '../components/ProductGrid'
 
 export default class Products extends Component {
     componentWillMount(){
-        if(this.props.match.params.label != "suplementos"){
+        if(this.props.match.params.label !== "suplementos"){
             window.location.href='../Notfound'
         }
     }
